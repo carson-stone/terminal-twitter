@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "twitter-like social activity in your terminal",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "dev": "nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/carson-stone/terminal-twitter/issues"
   },
-  "homepage": "https://github.com/carson-stone/terminal-twitter#readme"
+  "homepage": "https://github.com/carson-stone/terminal-twitter#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1",
+    "socket.io-client": "^4.4.1"
+  }
 }

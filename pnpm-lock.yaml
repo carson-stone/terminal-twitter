@@ -2,11 +2,13 @@ lockfileVersion: 5.3
 
 specifiers:
   express: ^4.17.3
+  readline-sync: ^1.4.10
   socket.io: ^4.4.1
   socket.io-client: ^4.4.1
 
 dependencies:
   express: 4.17.3
+  readline-sync: 1.4.10
   socket.io: 4.4.1
   socket.io-client: 4.4.1
 
@@ -396,6 +398,11 @@ packages:
       http-errors: 1.8.1
       iconv-lite: 0.4.24
       unpipe: 1.0.0
+    dev: false
+
+  /readline-sync/1.4.10:
+    resolution: {integrity: sha512-gNva8/6UAe8QYepIQH/jQ2qn91Qj0B9sYjMBBs3QOB8F2CXcKgLxQaJRP76sWVRQt+QU+8fAkCbCvjjMFu7Ycw==}
+    engines: {node: '>= 0.8.0'}
     dev: false
 
   /safe-buffer/5.2.1:

@@ -1,8 +1,3 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
 import express from "express";
 import http from "http";
 import { Server as SocketIOServer } from "socket.io";
@@ -12,11 +7,10 @@ const server = http.createServer(app);
 const io = new SocketIOServer(server);
 
 io.on("connection", (socket) => {
-  console.log("a user connected");
-});
+  const { name } = socket.handshake.query
+  console.log(`${name} has connected`);
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  socket.broadcast.emit("entered", name)
 });
 
 const port = 3000;

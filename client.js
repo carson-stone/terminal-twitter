@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { io as socketIO } from "socket.io-client";
-import readline from "readline-sync";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import chalk from "chalk";
@@ -15,18 +14,25 @@ const cliOptions = yargs(hideBin(process.argv))
     type: "string",
     demandOption: true
   })
+  .usage("Usage: -n <name>")
+  .option("n", {
+    alias: "name",
+    describe: "Your name",
+    default: "",
+    type: "string",
+    demandOption: true
+  })
   .argv;
 
 const serverUrl = "ws://127.0.0.1:3000"
 
-const name = readline.question(`What"s your name? `)
-console.log(`Welcome ${name}!`)
-
 const io = socketIO(serverUrl, {
-  query: { name }}
+  query: { name: cliOptions.name }}
 )
 
 io.on("connect", () => {
+  console.log(chalk.yellow.bold("Connected to the server!"))
+
   if (cliOptions.message) {
     io.emit("post", cliOptions.message, () => {
       process.exit()
@@ -41,5 +47,5 @@ io.on("entered", (name) => {
 io.on("post", (user, message) => {
   const timestamp = chalk.gray(new Date().toLocaleString())
 
-  console.log(`${chalk.green(user)}: "${message}" - ${timestamp}`)
+  console.log(`${timestamp} - ${chalk.green(user)}: "${message}"`)
 })

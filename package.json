@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "tx": "./client.js"
+    "tx": "client.js"
   },
   "repository": {
     "type": "git",

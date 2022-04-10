@@ -2,11 +2,14 @@
   "name": "terminal-twitter",
   "version": "1.0.0",
   "description": "twitter-like social activity in your terminal",
-  "main": "index.js",
+  "main": "client.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon .",
+    "server": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "tx": "./client.js"
   },
   "repository": {
     "type": "git",
@@ -20,9 +23,12 @@
   },
   "homepage": "https://github.com/carson-stone/terminal-twitter#readme",
   "dependencies": {
+    "chalk": "^5.0.1",
     "express": "^4.17.3",
+    "forever": "^4.0.3",
     "readline-sync": "^1.4.10",
     "socket.io": "^4.4.1",
-    "socket.io-client": "^4.4.1"
+    "socket.io-client": "^4.4.1",
+    "yargs": "^17.4.1"
   }
 }

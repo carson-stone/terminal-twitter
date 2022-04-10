@@ -11,6 +11,12 @@ io.on("connection", (socket) => {
   console.log(`${name} has connected`);
 
   socket.broadcast.emit("entered", name)
+
+  socket.on("post", (message, cb) => {
+    console.log(`${name}: "${message}"`)
+    socket.broadcast.emit("post", name, `"${message}"`)
+    cb("OK")
+  })
 });
 
 const port = 3000;

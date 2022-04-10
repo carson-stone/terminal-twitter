@@ -47,5 +47,5 @@ io.on("entered", (name) => {
 io.on("post", (user, message) => {
   const timestamp = chalk.gray(new Date().toLocaleString())
 
-  console.log(`${timestamp} - ${chalk.green(user)}: "${message}"`)
+  console.log(`${timestamp} - ${chalk.green(user)}: ${message}`)
 })

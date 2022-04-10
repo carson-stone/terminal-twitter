@@ -31,12 +31,12 @@ const io = socketIO(serverUrl, {
 )
 
 io.on("connect", () => {
-  console.log(chalk.yellow.bold("Connected to the server!"))
-
   if (cliOptions.message) {
     io.emit("post", cliOptions.message, () => {
       process.exit()
     })
+  } else {
+    console.log(chalk.yellow.bold("Connected to the server!"))
   }
 })
 
